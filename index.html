@@ -59,6 +59,37 @@ const closeButton = document.getElementById('close')
   closeButton.addEventListener("click", function () {
     sidebar.classList.toggle("translate-x-full");
   })
+    
+      const images = https://saastemplatesstorage.blob.core.windows.net/sasstemplatesstorages/1733764501916-graduations.jpg,https://saastemplatesstorage.blob.core.windows.net/sasstemplatesstorages/1733764502537-preschools.jpg,https://saastemplatesstorage.blob.core.windows.net/sasstemplatesstorages/1733764502879-weddings.jpg
+      let currentIndex = 0;
+    
+    const imageElement = document.getElementById('carousel-image');
+    const prevButton = document.getElementById('carousel-prev');
+    const nextButton = document.getElementById('carousel-next');
+
+    // Function to show the image at the current index
+    function updateCarousel() {
+      imageElement.src = images[currentIndex];
+    }
+
+    // Previous button click handler
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length; // Looping back to last image
+      updateCarousel();
+    });
+
+    // Next button click handler
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length; // Looping back to first image
+      updateCarousel();
+    });
+
+    // Automatic slide change every 3 seconds
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateCarousel();
+    }, 3000);
+      
             </script>
       </body>
       </html>
